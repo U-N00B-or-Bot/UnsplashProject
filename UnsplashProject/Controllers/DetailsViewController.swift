@@ -27,6 +27,31 @@ class DetailsViewController: UIViewController {
         
     }
     
+ 
+    
+    @IBAction func dubleTap(_ sender: Any) {
+        if isLiked == true{
+            isLiked = false
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            modelRemoveFromSingleTon(model: model!)
+            StorageManager.shared.saveData()
+            alert(title: "Removed", message: "photo removed from list", actionTitle: "Ok")
+            
+        }else{
+            isLiked = true
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            modelAddToSingleTon(model: model!)
+            StorageManager.shared.saveData()
+            alert(title: "Added", message: "Photo added to favorite photo list", actionTitle: "Ok")
+            
+        }
+        
+        
+        
+        }
+    
+    
+    
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         if isLiked == true{
             isLiked = false

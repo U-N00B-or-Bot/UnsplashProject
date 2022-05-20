@@ -68,10 +68,12 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 switch result {
                 case .success(let models):
                     self.modelsArray = models
+                    self.photoCollection.contentOffset = CGPoint(x: 0, y: 0)
                     self.photoCollection.reloadData()
                     return
                 case .failure(let error):
                     print(error)
+                    
                 }
             }
             
